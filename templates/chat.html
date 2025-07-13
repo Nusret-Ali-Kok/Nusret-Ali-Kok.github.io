@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Chat with My Portfolio</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; }
+        .chat-message { padding: 10px; margin-bottom: 10px; border-radius: 5px; }
+        .user-message { background-color: #d1e7fd; text-align: right; }
+        .bot-message { background-color: #f1f1f1; text-align: left; }
+        label, input, button { font-size: 1rem; }
+        input[type="text"] { width: 80%; padding: 8px; }
+        button { padding: 8px 12px; }
+    </style>
+</head>
+<body>
+    <h1>Chat with My Interactive Resume</h1>
+
+    <form method="POST">
+        <label for="message">You:</label><br />
+        <input type="text" name="message" id="message" required autocomplete="off" autofocus />
+        <button type="submit">Send</button>
+    </form>
+
+    <div style="margin-top: 30px;">
+        {% if chat_history %}
+            {% for msg in chat_history %}
+                <div class="chat-message {% if msg.role == 'user' %}user-message{% else %}bot-message{% endif %}">
+                    <strong>{{ 'You' if msg.role == 'user' else 'Bot' }}:</strong><br />
+                    <span>{{ msg.content.replace('\n', '<br>') | safe }}</span>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No conversation yet. Say hello!</p>
+        {% endif %}
+    </div>
+
+    <p><a href="/">← Back to main page</a></p>
+</body>
+</html>

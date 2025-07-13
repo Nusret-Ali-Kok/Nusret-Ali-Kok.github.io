@@ -6,6 +6,7 @@
 </head>
 <body>
     <h1>Welcome!</h1>
+    <p><a href="/chat">💬 Chat with the Resume Assistant</a></p>
     <p>Here are some of my past projects and experiences:</p>
     
     <form method="get" action="/">
@@ -15,11 +16,15 @@
     
     {% for exp in experiences %}
         <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-            <h2>{{ exp.title }}</h2>
+            <h2><a href="/experience/{{ exp.id }}">{{ exp.title }}</a></h2>
             <p><strong>Date:</strong> {{ exp.date }}</p>
             <p>{{ exp.description }}</p>
-            <p><strong>Tags:</strong> {{ exp.tags | join(', ') }}</p>
-
+            <p><strong>Tags:</strong>
+                {% for tag in exp.tags %}
+                    <a href="/?q={{ tag }}" style="margin-right: 5px;">#{{ tag }}</a>
+                {% endfor %}
+            </p>
+            
             {% for media in exp.media %}
                 {% if media.type == "image" %}
                     <img src="{{ media.url }}" alt="experience image" width="400"><br>
