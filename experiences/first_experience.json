@@ -1,0 +1,13 @@
+{
+    "id": "exp1",
+    "title": "Built a Mars Rover Prototype",
+    "date": "2023-06-15",
+    "description": "I led a team of 4 to build a Mars rover prototype that can autonomously navigate obstacles.",
+    "tags": ["robotics", "space", "teamwork"],
+    "media": [
+        {
+            "type": "image",
+            "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Mars-rover-curiosity.jpg/640px-Mars-rover-curiosity.jpg"
+        }
+    ]
+}
