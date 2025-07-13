@@ -27,6 +27,11 @@ def load_experiences():
 
 
 @app.route("/")
+def landing():
+    return render_template("landing.html")
+
+
+@app.route("/main")
 def home():
     query = request.args.get("q", "").lower()
     experiences = load_experiences()
