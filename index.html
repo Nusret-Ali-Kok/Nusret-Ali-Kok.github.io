@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: sans-serif;
+      background: #000;
+      color: white;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark {
+      background: #f4f4f4;
+      color: #111;
+    }
+
+    .container {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .panel {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: flex 0.5s ease;
+    }
+    .panel video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .label {
+      position: absolute;
+      z-index: 1;
+      color: white;
+      font-size: 2em;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.5);
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .expanded, .sub-expanded {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      z-index: 10;
+      overflow-y: auto;
+      padding: 2rem;
+      display: none;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .expanded.show, .sub-expanded.show {
+      display: block;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    .aero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding-top: 3rem;
+    }
+    .quad {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      height: 300px;
+    }
+    .quad video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 100;
+      color: white;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    nav span {
+      cursor: pointer;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      background: rgba(0,0,0,0.6);
+      padding: 1rem;
+      color: white;
+    }
+
+    footer a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    #theme-toggle {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      z-index: 100;
+      padding: 0.5rem 1rem;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <span onclick="closeAll()">Home</span>
+    <span onclick="openSection('ai')">AI & Coding</span>
+    <span onclick="openSection('edu')">Education</span>
+    <span onclick="openSection('aero')">Engineering</span>
+  </nav>
+
+  <button id="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+  <div class="container">
+    <div class="panel" onclick="openSection('ai')">
+      <video src="video_ai.mp4" autoplay loop muted></video>
+      <div class="label">Artificial Intelligence & Coding</div>
+    </div>
+    <div class="panel" onclick="openSection('edu')">
+      <video src="video_edu.mp4" autoplay loop muted></video>
+      <div class="label">Education</div>
+    </div>
+    <div class="panel" onclick="openSection('aero')">
+      <video src="video_aero.mp4" autoplay loop muted></video>
+      <div class="label">Mechanical & Aerospace Engineering</div>
+    </div>
+  </div>
+
+  <div id="ai" class="expanded">
+    <div class="close" onclick="closeExpanded('ai')">&times;</div>
+    <h1>Artificial Intelligence & Coding</h1>
+    <p>Content about your AI and programming projects.</p>
+  </div>
+
+  <div id="edu" class="expanded">
+    <div class="close" onclick="closeExpanded('edu')">&times;</div>
+    <h1>Education</h1>
+    <p>Content about your teaching and learning experiences.</p>
+  </div>
+
+  <div id="aero" class="sub-expanded">
+    <div class="close" onclick="closeExpanded('aero')">&times;</div>
+    <h1>Mechanical & Aerospace Engineering</h1>
+    <div class="aero-grid">
+      <div class="quad" onclick="openProjectDetail('Aerospace', 'Details about Aerospace projects.', 'video_aero1.mp4')">
+        <video src="video_aero1.mp4" autoplay loop muted></video>
+        <div class="label">Aerospace</div>
+      </div>
+      <div class="quad" onclick="openProjectDetail('CAD / 3D Modeling / Design', 'Details about CAD work.', 'video_aero2.mp4')">
+        <video src="video_aero2.mp4" autoplay loop muted></video>
+        <div class="label">CAD / 3D Modeling / Design</div>
+      </div>
+      <div class="quad" onclick="openProjectDetail('CFD', 'Details about CFD simulations.', 'video_aero3.mp4')">
+        <video src="video_aero3.mp4" autoplay loop muted></video>
+        <div class="label">CFD</div>
+      </div>
+      <div class="quad" onclick="openProjectDetail('Patent', 'Patent-related work or applications.', 'video_aero4.mp4')">
+        <video src="video_aero4.mp4" autoplay loop muted></video>
+        <div class="label">Patent</div>
+      </div>
+      <div class="quad" onclick="openProjectDetail('Professional Career', 'Experience in industry or academia.', 'video_aero5.mp4')">
+        <video src="video_aero5.mp4" autoplay loop muted></video>
+        <div class="label">Professional Career</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <a href="https://github.com/geronimothehero" target="_blank">GitHub</a>
+    <a href="mailto:your@email.com">Contact</a>
+  </footer>
+
+  <script>
+    function openSection(section) {
+      closeAll();
+      document.getElementById(section).classList.add('show');
+    }
+
+    function closeExpanded(section) {
+      document.getElementById(section).classList.remove('show');
+    }
+
+    function closeAll() {
+      document.querySelectorAll('.expanded, .sub-expanded').forEach(el => el.classList.remove('show'));
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+
+    function openProjectDetail(title, description, video) {
+      const modal = document.createElement('div');
+      modal.innerHTML = `
+        <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:#000a;z-index:200;display:flex;align-items:center;justify-content:center;">
+          <div style="background:#222;padding:2rem;color:white;max-width:600px;width:90%;position:relative;border-radius:10px;">
+            <span onclick="this.parentElement.parentElement.remove()" style="position:absolute;top:10px;right:20px;cursor:pointer;font-size:1.5rem;">&times;</span>
+            <h2>${title}</h2>
+            <p>${description}</p>
+            <video src="${video}" controls style="width:100%;margin-top:1rem;border-radius:10px;"></video>
+          </div>
+        </div>`;
+      document.body.appendChild(modal);
+    }
+  </script>
+</body>
+</html>
