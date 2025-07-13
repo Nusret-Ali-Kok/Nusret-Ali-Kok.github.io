@@ -18,8 +18,15 @@ def load_experiences():
 
 @app.route("/")
 def home():
+    query = request.args.get("q", "").lower()
     experiences = load_experiences()
-    return render_template("index.html", experiences=experiences)
 
-if __name__ == "__main__":
-    app.run(debug=True)
+    if query:
+        experiences = [
+            exp for exp in experiences
+            if query in exp["title"].lower()
+            or query in exp["description"].lower()
+            or any(query in tag.lower() for tag in exp["tags"])
+        ]
+
+    return render_template("index.html", experiences=experiences, query=query)
