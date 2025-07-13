@@ -7,7 +7,12 @@
 <body>
     <h1>Welcome!</h1>
     <p>Here are some of my past projects and experiences:</p>
-
+    
+    <form method="get" action="/">
+        <input type="text" name="q" placeholder="Search by keyword or tag">
+        <button type="submit">Search</button>
+    </form>
+    
     {% for exp in experiences %}
         <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
             <h2>{{ exp.title }}</h2>
