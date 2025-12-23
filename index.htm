@@ -19,7 +19,7 @@
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5, rootMargin: "-20% 0px -20% 0px" }
     );
 
     sections.forEach(section => observer.observe(section));
@@ -35,7 +35,7 @@
     </div>
 
     <img 
-      src="assets/welcome.jpeg" 
+      src="assets/welcome.jpeg" class="small-image" 
       alt="Journey Visual" 
       class="hero-image"
     >
@@ -63,8 +63,8 @@
 
   <section class="experience" data-bg="aero">
     <h2>Professional Connections</h2>
-    <img src="assets/Connections 1.jpg">
-    <img src="assets/Connections 2.jpg">
+    <img src="assets/Connections 1.jpg" class="small-image">
+    <img src="assets/Connections 2.jpg" class="small-image">
     <p>Networking and collaboration experiences.</p>
   </section>
 
