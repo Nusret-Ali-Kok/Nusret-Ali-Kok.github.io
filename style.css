@@ -34,32 +34,38 @@ header {
   margin: 60px auto;
   padding: 30px;
   background: rgba(0, 0, 0, 0.65);
-  border-radius: 10px;
-  transition: box-shadow 0.3s ease;
+  border-radius: 12px;
+
+  /* This makes glow visible */
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
+
 
 /* AI section glow - turquoise */
 .experience[data-bg="ai"] {
-  box-shadow: 0 0 20px rgba(16, 235, 221, 0.8),
-              0 0 40px rgba(16, 235, 221, 0.4);
+  box-shadow:
+    0 0 30px rgba(16, 235, 221, 0.6),
+    0 0 60px rgba(16, 235, 221, 0.25);
 }
 
-/* Aerospace section glow - blue */
+/* Aerospace section glow */
 .experience[data-bg="aero"] {
-  box-shadow: 0 0 20px rgb(12, 20, 238),
-              0 0 40px rgb(166, 235, 241);
+  box-shadow:
+    0 0 30px rgba(12, 20, 238, 0.6),
+    0 0 60px rgba(166, 235, 241, 0.25);
 }
 
-/* Mechanical section glow - orange */
+/* Mechanical section glow */
 .experience[data-bg="mech"] {
-  box-shadow: 0 0 20px rgba(235, 147, 25, 0.8),
-              0 0 40px rgba(235, 147, 25, 0.4);
+  box-shadow:
+    0 0 30px rgba(235, 147, 25, 0.6),
+    0 0 60px rgba(235, 147, 25, 0.25);
 }
 
 .experience img,
 .experience video,
 .experience iframe {
-  width: 80%;
+  width: 100%;
   aspect-ratio: 16 / 9;
   height: auto;
   margin-top: 15px;
