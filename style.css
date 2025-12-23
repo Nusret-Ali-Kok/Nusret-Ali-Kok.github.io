@@ -3,11 +3,12 @@ body {
   font-family: Arial, sans-serif;
   color: white;
 
-  background-image: url("assets/background.jpg");
+  background-image: url("assets/Background.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
 }
+
 
 header {
   text-align: center;
