@@ -40,7 +40,7 @@ header {
 .experience img,
 .experience video,
 .experience iframe {
-  width: 60%;
+  width: 80%;
   aspect-ratio: 16 / 9;
   height: auto;
   margin-top: 15px;
