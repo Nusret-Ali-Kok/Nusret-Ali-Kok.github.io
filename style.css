@@ -41,13 +41,12 @@ header {
 .experience video,
 .experience iframe {
   width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
   margin-top: 15px;
   border-radius: 8px;
 }
 
-.experience iframe {
-  height: 450px;
-}
 
 .experience h2 {
   margin-top: 0;
@@ -114,7 +113,6 @@ header {
   backdrop-filter: blur(8px);
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
 }
 
 /* AI — cool, intelligent, subtle glow */
