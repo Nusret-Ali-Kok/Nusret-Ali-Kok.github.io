@@ -46,9 +46,7 @@ header {
 }
 
 .experience iframe {
-  aspect-ratio: 16 / 9;
-  height: auto;
-  min-height: 315px;
+  height: 450px;
 }
 
 .experience h2 {
@@ -56,7 +54,7 @@ header {
 }
 
 .small-image {
-  max-width: 50%;
+  max-width: 25%;
   display: block;
   margin-left: auto;
   margin-right: auto;
