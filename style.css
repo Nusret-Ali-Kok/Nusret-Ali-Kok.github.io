@@ -35,6 +35,25 @@ header {
   padding: 30px;
   background: rgba(0, 0, 0, 0.65);
   border-radius: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+/* AI section glow - turquoise */
+.experience[data-bg="ai"] {
+  box-shadow: 0 0 20px rgba(16, 235, 221, 0.8),
+              0 0 40px rgba(16, 235, 221, 0.4);
+}
+
+/* Aerospace section glow - blue */
+.experience[data-bg="aero"] {
+  box-shadow: 0 0 20px rgb(12, 20, 238),
+              0 0 40px rgb(166, 235, 241);
+}
+
+/* Mechanical section glow - orange */
+.experience[data-bg="mech"] {
+  box-shadow: 0 0 20px rgba(235, 147, 25, 0.8),
+              0 0 40px rgba(235, 147, 25, 0.4);
 }
 
 .experience img,
