@@ -26,12 +26,32 @@
   });
 </script>
 
+<script>
+  function scrollToSection(type) {
+    const target = document.querySelector(
+      `.experience[data-bg="${type}"]`
+    );
+
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  }
+</script>
+
 <body>
 
   <header class="hero" data-bg="ai">
     <div class="hero-content">
       <h1>Nusret's Journey</h1>
       <h3>From Mechanical to Aerospace to AI Engineering</h3>
+      <div class="hero-buttons">
+        <button onclick="scrollToSection('ai')">AI</button>
+        <button onclick="scrollToSection('aero')">Aerospace Engineering</button>
+        <button onclick="scrollToSection('mech')">Mechanical Engineering</button>
+      </div>
     </div>
 
     <img 
@@ -59,13 +79,6 @@
     <h2>AI & Innovation Booth</h2>
     <img src="assets/AI Booth.jpeg">
     <p>Presenting AI-driven ideas and projects.</p>
-  </section>
-
-  <section class="experience" data-bg="aero">
-    <h2>Professional Connections</h2>
-    <img src="assets/Connections 1.jpg" class="small-image">
-    <img src="assets/Connections 2.jpg" class="small-image">
-    <p>Networking and collaboration experiences.</p>
   </section>
 
   <section class="experience" data-bg="aero">
