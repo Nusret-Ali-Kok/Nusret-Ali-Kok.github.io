@@ -5,109 +5,108 @@
   <title>Nusret's Journey</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
+<script>
+  const sections = document.querySelectorAll(".experience");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bg = entry.target.dataset.bg;
+          document.body.className = `bg-${bg}`;
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
 <body>
 
   <header>
     <h1>Nusret's Journey: From Mechanical to Aerospace to AI Engineering</h1>
   </header>
 
-  <section class="experience">
+  <section class="experience" data-bg="ai">
     <h2>Imperial Research Workflow</h2>
-    <img src="assets/Imperial Work Workflow Diagram.png" alt="Imperial Workflow">
-    <img src="assets/Imperial Work Workflow Diagram Simple.png" alt="Imperial Workflow Simple">
+    <img src="assets/Imperial Work Workflow Diagram.png">
+    <img src="assets/Imperial Work Workflow Diagram Simple.png">
     <p>Research and development workflow at Imperial.</p>
   </section>
 
-  <section class="experience">
+  <section class="experience" data-bg="ai">
     <h2>MSc Project – Workflow</h2>
-    <img src="assets/MSc Workflow Diagram.jpg" alt="MSc Workflow">
-    <img src="assets/MSc Workflow Diagram Simple.png" alt="MSc Workflow Simple">
+    <img src="assets/MSc Workflow Diagram.jpg">
+    <img src="assets/MSc Workflow Diagram Simple.png">
     <p>High-level and simplified MSc project workflow.</p>
   </section>
 
-  <section class="experience">
+  <section class="experience" data-bg="ai">
     <h2>AI & Innovation Booth</h2>
-    <img src="assets/AI Booth.jpeg" alt="AI Booth">
+    <img src="assets/AI Booth.jpeg">
     <p>Presenting AI-driven ideas and projects.</p>
   </section>
 
-  <section class="experience">
+  <section class="experience" data-bg="aero">
     <h2>Professional Connections</h2>
-    <img src="assets/Connections 1.jpg" alt="Connections">
-    <img src="assets/Connections 2.jpg" alt="Connections">
+    <img src="assets/Connections 1.jpg">
+    <img src="assets/Connections 2.jpg">
     <p>Networking and collaboration experiences.</p>
   </section>
 
-  <section class="experience">
+  <section class="experience" data-bg="aero">
     <h2>Study & Research Environment</h2>
-    <img src="assets/Imperial Study.jpg" alt="Imperial Study">
+    <img src="assets/Imperial Study.jpg">
     <p>Study and research life at Imperial.</p>
   </section>
 
-   <section class="experience">
+  <section class="experience" data-bg="aero">
     <h2>Imperial College London</h2>
-    <img src="assets/Imperial 1.jpg" alt="Imperial College">
-    <img src="assets/Imperial 2.jpg" alt="Imperial College">
+    <img src="assets/Imperial 1.jpg">
+    <img src="assets/Imperial 2.jpg">
     <p>Beginning of postgraduate journey at Imperial.</p>
   </section>
 
-  <section class="experience">
+  <section class="experience" data-bg="mech">
     <h2>Undergraduate Graduation</h2>
-    <img src="assets/Cankaya Graduation.jpeg" alt="Graduation">
+    <img src="assets/Cankaya Graduation.jpeg">
     <p>Graduation milestone.</p>
   </section>
 
-  <section class="experience">
+  <section class="experience" data-bg="mech">
     <h2>Advanced Simulation Work</h2>
-    <iframe src="https://www.youtube.com/embed/AFEbDn0yI4I" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/2pZvRmtShB0" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/gwNmXztm00Y" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/AFEbDn0yI4I"></iframe>
+    <iframe src="https://www.youtube.com/embed/2pZvRmtShB0"></iframe>
+    <iframe src="https://www.youtube.com/embed/gwNmXztm00Y"></iframe>
     <p>Description of advanced simulation or research work.</p>
   </section>
 
-  <section class="experience">
+  <section class="experience" data-bg="mech">
     <h2>Engineering Visualisations</h2>
-    <iframe src="https://www.youtube.com/embed/-ACtjmaifBs" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/wuUzJBqSY8Y" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/-ACtjmaifBs"></iframe>
+    <iframe src="https://www.youtube.com/embed/wuUzJBqSY8Y"></iframe>
     <p>Description of these visualisation projects.</p>
   </section>
 
-  <section class="experience">
+  <section class="experience" data-bg="mech">
     <h2>Fluid Flow Project</h2>
     <video controls>
-      <source src="assets/Fluid Flow Project.mp4" type="video/mp4">
+      <source src="assets/Fluid Flow Project.mp4">
     </video>
     <p>Description of the fluid flow project.</p>
   </section>
-  
-  <section class="experience">
+
+  <section class="experience" data-bg="mech">
     <h2>Patent Work</h2>
-    <img src="assets/Patent.jpeg" alt="Patent Image">
+    <img src="assets/Patent.jpeg">
     <video controls>
-      <source src="assets/Patent vid.mp4" type="video/mp4">
+      <source src="assets/Patent vid.mp4">
     </video>
     <p>Brief description of the patent work.</p>
   </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </body>

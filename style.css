@@ -3,11 +3,24 @@ body {
   font-family: Arial, sans-serif;
   color: white;
 
-  background-image: url("assets/Background.jpg");
   background-size: cover;
-  background-attachment: fixed;
   background-position: center;
+  background-attachment: fixed;
+  transition: background-image 0.6s ease-in-out;
 }
+
+body.bg-ai {
+  background-image: url("assets/bg-ai.jpg");
+}
+
+body.bg-aero {
+  background-image: url("assets/bg-aero.jpg");
+}
+
+body.bg-mech {
+  background-image: url("assets/bg-mech.jpg");
+}
+
 
 
 header {
