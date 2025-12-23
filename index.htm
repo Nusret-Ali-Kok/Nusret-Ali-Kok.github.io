@@ -7,27 +7,38 @@
 </head>
 
 <script>
-  const sections = document.querySelectorAll(".experience");
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".experience, .hero");
 
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const bg = entry.target.dataset.bg;
-          document.body.className = `bg-${bg}`;
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const bg = entry.target.dataset.bg;
+            document.body.className = `bg-${bg}`;
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
 
-  sections.forEach(section => observer.observe(section));
+    sections.forEach(section => observer.observe(section));
+  });
 </script>
 
 <body>
 
-  <header>
-    <h1>Nusret's Journey: From Mechanical to Aerospace to AI Engineering</h1>
+  <header class="hero" data-bg="ai">
+    <div class="hero-content">
+      <h1>Nusret's Journey</h1>
+      <h3>From Mechanical to Aerospace to AI Engineering</h3>
+    </div>
+
+    <img 
+      src="assets/welcome.jpg" 
+      alt="Journey Visual" 
+      class="hero-image"
+    >
   </header>
 
   <section class="experience" data-bg="ai">
