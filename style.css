@@ -40,7 +40,7 @@ header {
 .experience img,
 .experience video,
 .experience iframe {
-  width: 100%;
+  width: 80%;
   aspect-ratio: 16 / 9;
   height: auto;
   margin-top: 15px;
@@ -122,9 +122,9 @@ header {
 }
 
 .btn-ai:hover {
-  background: rgba(58, 114, 246, 0.3);
-  box-shadow: 0 0 25px rgba(80, 170, 255, 0.8), 
-              0 0 50px rgba(80, 170, 255, 0.4); 
+  background: rgba(42, 226, 208, 0.25);
+  box-shadow: 0 0 25px rgba(16, 235, 221, 0.8),
+              0 0 50px rgba(16, 235, 221, 0.4); 
 }
 
 /* Aerospace — high energy, altitude, exploration */
@@ -134,9 +134,9 @@ header {
 }
 
 .btn-aero:hover {
-  background: rgba(42, 226, 208, 0.25);
-  box-shadow: 0 0 25px rgba(16, 235, 221, 0.8),
-              0 0 50px rgba(16, 235, 221, 0.4);
+  background: rgba(11, 57, 162, 0.8);
+  box-shadow: 0 0 25px rgb(12, 20, 238), 
+              0 0 50px rgb(166, 235, 241);
 }
 
 /* Mechanical — grounded, precise, industrial */
