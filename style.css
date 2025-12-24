@@ -63,7 +63,8 @@ header {
 }
 
 .experience img {
-  width: 100%;
+  max-width: 100%;
+  height: auto;
   margin-top: 15px;
   border-radius: 8px;
 }
