@@ -55,8 +55,14 @@ header {
 
 .experience-grid {
   display: grid;
-  grid-template-columns: minmax(420px, 1fr) minmax(520px, 1.3fr);
-  align-items: center;
+
+  /* media | empty air | text */
+  grid-template-columns:
+    minmax(520px, 1.4fr)
+    minmax(200px, 0.6fr)
+    minmax(360px, 1fr);
+
+  align-items: start;
 }
 
 .experience-text {
@@ -115,18 +121,6 @@ header {
   height: auto;
   border-radius: 10px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-}
-
-.experience:nth-child(even) .experience-grid {
-  grid-template-columns: 1.2fr 1fr;
-}
-
-.experience:nth-child(even) .experience-text {
-  order: 2;
-}
-
-.experience:nth-child(even) .experience-media {
-  order: 1;
 }
 
 .experience h2 {
