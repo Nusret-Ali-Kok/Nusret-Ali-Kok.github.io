@@ -55,13 +55,7 @@ header {
 
 .experience-grid {
   display: grid;
-
-  /* media | empty air | text */
-  grid-template-columns:
-    minmax(520px, 1.4fr)
-    minmax(200px, 0.6fr)
-    minmax(360px, 1fr);
-
+  grid-template-columns: minmax(420px, 1fr) minmax(520px, 1.3fr);
   align-items: center;
 }
 
