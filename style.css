@@ -81,6 +81,7 @@ header {
 .experience.flip .experience-media {
   grid-column: 1;
   justify-self: start;
+  align-self: start;
 }
 
 
