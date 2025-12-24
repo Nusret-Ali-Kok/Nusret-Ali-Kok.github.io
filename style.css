@@ -30,22 +30,23 @@ header {
 }
 
 .experience {
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 30px;
-  background: rgba(0, 0, 0, 0.65);
-  border-radius: 12px;
+  max-width: 1400px;            /* widened – explained below */
+  margin: 80px auto;
+  padding: 40px 60px;
 
-  /* This makes glow visible */
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;      /* FULLY see-through */
+  border-radius: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-sizing: border-box;
 }
-
 .experience-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 40px;
+  grid-template-columns: minmax(260px, 1fr) minmax(500px, 2.4fr);
+  gap: 80px;                     /* creates clean center gap */
   align-items: center;
 }
+
 
 .experience-text h2 {
   font-size: 1.8rem;
@@ -56,6 +57,14 @@ header {
   font-size: 1rem;
   line-height: 1.6;
   opacity: 0.9;
+}
+
+.experience-text {
+  justify-self: start;
+}
+
+.experience-media {
+  justify-self: end;
 }
 
 
@@ -112,7 +121,7 @@ header {
 }
 
 .small-image {
-  max-width: 25%;
+  max-width: 10%;
   display: block;
   margin-left: auto;
   margin-right: auto;
