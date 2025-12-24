@@ -61,24 +61,28 @@ header {
 
 .experience-text {
   grid-column: 1;
+  grid-row: 1;
   justify-self: start;
   align-self: start;
 }
 
 .experience-media {
   grid-column: 2;
+  grid-row: 1;
   justify-self: end;
   align-self: start;
 }
 
 .experience.flip .experience-text {
   grid-column: 2;
+  grid-row: 1;
   justify-self: end;
   text-align: right;
 }
 
 .experience.flip .experience-media {
   grid-column: 1;
+  grid-row: 1;
   justify-self: start;
   align-self: start;
 }
