@@ -106,7 +106,7 @@ header {
 
 .experience-media {
   display: grid;
-  gap: 20px;
+  gap: 0px;
   align-items: start; /* this fixes the vertical alignment */
 }
 
