@@ -62,7 +62,11 @@ header {
     0 0 60px rgba(235, 147, 25, 0.25);
 }
 
-.experience img,
+.experience img {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 8px;
+}
 .experience video,
 .experience iframe {
   width: 100%;
