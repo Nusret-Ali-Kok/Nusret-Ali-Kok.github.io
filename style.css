@@ -63,11 +63,13 @@ header {
 .experience-text {
   grid-column: 1;
   justify-self: start;
+  align-self: start;
 }
 
 .experience-media {
   grid-column: 2;
   justify-self: end;
+  align-self: start;
 }
 
 .experience.flip .experience-text {
