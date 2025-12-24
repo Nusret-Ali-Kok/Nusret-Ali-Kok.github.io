@@ -14,7 +14,7 @@ body.bg-ai {
 }
 
 body.bg-aero {
-  background-image: url("assets/bg-aero.jpg");
+  background-image: url("assets/bg-aero2.png");
 }
 
 body.bg-mech {
@@ -40,6 +40,24 @@ header {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.experience-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.experience-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
 
 /* AI section glow - turquoise */
 .experience[data-bg="ai"] {
@@ -62,21 +80,32 @@ header {
     0 0 60px rgba(235, 147, 25, 0.25);
 }
 
-.experience img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 15px;
-  border-radius: 8px;
-}
-.experience video,
-.experience iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  height: auto;
-  margin-top: 15px;
-  border-radius: 8px;
+
+.experience-media {
+  display: grid;
+  gap: 20px;
 }
 
+.experience-media img,
+.experience-media video,
+.experience-media iframe {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+.experience:nth-child(even) .experience-grid {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.experience:nth-child(even) .experience-text {
+  order: 2;
+}
+
+.experience:nth-child(even) .experience-media {
+  order: 1;
+}
 
 .experience h2 {
   margin-top: 0;
@@ -184,4 +213,16 @@ header {
 /* Subtle lift on hover */
 .hero-buttons button:hover {
   transform: translateY(-3px);
+}
+
+
+@media (max-width: 900px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-text,
+  .experience-media {
+    order: unset;
+  }
 }
