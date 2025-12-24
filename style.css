@@ -57,7 +57,6 @@ header {
   display: grid;
   grid-template-columns: minmax(420px, 1fr) minmax(520px, 1.3fr);
   align-items: start;
-  gap: 60px;
 }
 
 .experience-text {
@@ -109,7 +108,7 @@ header {
 
 .experience-media {
   display: grid;
-  gap: 0px;
+  gap: 30px;
   align-items: start; /* this fixes the vertical alignment */
 }
 
