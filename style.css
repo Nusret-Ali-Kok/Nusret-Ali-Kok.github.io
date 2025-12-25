@@ -10,7 +10,7 @@ body {
 }
 
 body.bg-ai {
-  background-image: url("assets/bg-ai.jpg");
+  background-image: url("assets/bg-ai2.png");
 }
 
 body.bg-aero {
@@ -18,7 +18,7 @@ body.bg-aero {
 }
 
 body.bg-mech {
-  background-image: url("assets/bg-mech2.jpg");
+  background-image: url("assets/bg-mech2.png");
 }
 
 
@@ -125,6 +125,12 @@ header {
   height: auto;
   border-radius: 10px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+.experience iframe {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: 315px;
 }
 
 .experience h2 {
