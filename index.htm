@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let zoomed = false;
   let currentX = 0, currentY = 0;
   let isDragging = false;
+  let dragOccurred = false; // NEW: track if a drag happened
   let startX, startY;
 
   images.forEach(img => {
@@ -68,9 +69,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Click on image to toggle zoom
+  // Click to toggle zoom
   lightboxImg.addEventListener("click", e => {
-    e.stopPropagation(); // prevent closing
+    e.stopPropagation();
+    if (dragOccurred) {
+      // Ignore click if we just dragged
+      dragOccurred = false;
+      return;
+    }
+
     const rect = lightboxImg.getBoundingClientRect();
     const offsetX = e.clientX - rect.left;
     const offsetY = e.clientY - rect.top;
@@ -116,6 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
   lightboxImg.addEventListener("mousedown", e => {
     if (!zoomed) return;
     isDragging = true;
+    dragOccurred = false; // reset
     startX = e.clientX - currentX;
     startY = e.clientY - currentY;
     lightboxImg.classList.add("dragging");
@@ -124,6 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("mousemove", e => {
     if (!isDragging) return;
+    dragOccurred = true; // mark that dragging happened
     currentX = e.clientX - startX;
     currentY = e.clientY - startY;
     lightboxImg.style.transform = `scale(2) translate(${currentX}px, ${currentY}px)`;
@@ -231,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="experience-text">
         <h2>ICAV</h2>
-        <p>ICAV</p>
+        <p>Alh. ICAV</p>
       </div>
 
       <div class="experience-media">
