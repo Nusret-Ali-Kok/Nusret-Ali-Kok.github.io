@@ -51,36 +51,82 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxImg = document.querySelector(".lightbox-content");
   const closeBtn = document.querySelector(".lightbox-close");
 
-  let zoomed = false; // track zoom state
+  let zoomed = false;
+  let originX = 0;
+  let originY = 0;
+
+  let isDragging = false;
+  let startX, startY;
+  let currentX = 0, currentY = 0;
 
   images.forEach(img => {
-    img.addEventListener("click", () => {
+    img.addEventListener("click", e => {
       lightbox.style.display = "flex";
       lightboxImg.src = img.src;
-      lightboxImg.style.transform = "scale(1)";
+      lightboxImg.style.transform = "scale(1) translate(0,0)";
       zoomed = false;
+      currentX = 0;
+      currentY = 0;
     });
   });
 
-  // Click anywhere on overlay to zoom in/out
+  // Click to zoom in/out
   lightbox.addEventListener("click", e => {
-    if (e.target === lightbox || e.target === lightboxImg) {
+    if (e.target === lightboxImg) {
       if (!zoomed) {
-        lightboxImg.style.transform = "scale(1.5)"; // zoom in
+        // Zoom in at cursor position
+        const rect = lightboxImg.getBoundingClientRect();
+        const offsetX = e.clientX - rect.left;
+        const offsetY = e.clientY - rect.top;
+        const originXPercent = (offsetX / rect.width) * 100;
+        const originYPercent = (offsetY / rect.height) * 100;
+
+        lightboxImg.style.transformOrigin = `${originXPercent}% ${originYPercent}%`;
+        lightboxImg.style.transform = "scale(2) translate(0,0)";
         zoomed = true;
-      } else {
-        lightbox.style.display = "none"; // close
-        lightboxImg.src = "";
-        zoomed = false;
       }
+    } else if (!zoomed && e.target === lightbox) {
+      // Click outside while not zoomed closes
+      lightbox.style.display = "none";
+      lightboxImg.src = "";
     }
   });
 
-  // Close button still works
+  // Close button
   closeBtn.addEventListener("click", () => {
     lightbox.style.display = "none";
     lightboxImg.src = "";
     zoomed = false;
+  });
+
+  // Drag to pan when zoomed
+  lightboxImg.addEventListener("mousedown", e => {
+    if (!zoomed) return;
+    isDragging = true;
+    startX = e.clientX - currentX;
+    startY = e.clientY - currentY;
+    lightboxImg.classList.add("dragging");
+    e.preventDefault();
+  });
+
+  window.addEventListener("mousemove", e => {
+    if (!isDragging) return;
+    currentX = e.clientX - startX;
+    currentY = e.clientY - startY;
+    lightboxImg.style.transform = `scale(2) translate(${currentX}px, ${currentY}px)`;
+  });
+
+  window.addEventListener("mouseup", () => {
+    isDragging = false;
+    lightboxImg.classList.remove("dragging");
+  });
+
+  // Optional: allow scrolling to pan vertically
+  lightbox.addEventListener("wheel", e => {
+    if (!zoomed) return;
+    currentY -= e.deltaY;
+    currentX -= e.deltaX;
+    lightboxImg.style.transform = `scale(2) translate(${currentX}px, ${currentY}px)`;
   });
 });
 </script>

@@ -256,20 +256,14 @@ header {
 
 
 
-/* Change cursor on hover for clickable images */
 .experience-media img {
-  cursor: zoom-in;  /* indicates the image can be clicked */
+  cursor: zoom-in;
   transition: transform 0.3s ease;
 }
 
-/* Optional hover effect to give a subtle lift */
-.experience-media img:hover {
-  transform: scale(1.02);
-}
-
-/* Lightbox background overlay */
+/* Lightbox overlay */
 .lightbox {
-  display: none; /* hidden by default */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -279,17 +273,24 @@ header {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  cursor: zoom-in; /* user can click to zoom */
-  transition: background 0.3s ease;
+  cursor: zoom-in;
+  overflow: hidden;
 }
 
-/* Image inside lightbox */
+/* Lightbox image */
 .lightbox-content {
   max-width: 90%;
   max-height: 90%;
   border-radius: 12px;
   box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-  transition: transform 0.3s ease; /* smooth zoom */
+  transition: transform 0.3s ease;
+  cursor: grab;
+  position: relative;
+}
+
+/* While dragging */
+.lightbox-content.dragging {
+  cursor: grabbing;
 }
 
 /* Close button */
@@ -300,7 +301,9 @@ header {
   font-size: 40px;
   color: white;
   cursor: pointer;
+  z-index: 10000;
 }
+
 
 
 @media (max-width: 900px) {
