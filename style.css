@@ -1,13 +1,14 @@
+/* ===== BODY BASE ===== */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: white;
-  background-color: #000;
+  background-color: #000; /* fallback */
   position: relative;
   overflow-x: hidden;
 }
 
-/* Two fixed layers for fading */
+/* ===== BACKGROUND LAYERS ===== */
 body::before,
 body::after {
   content: "";
@@ -15,45 +16,29 @@ body::after {
   inset: 0;
   z-index: -1;
 
-  background-size: 100% 100%;
+  background-size: 100% 100%;   /* fill the viewport */
   background-position: center;
   background-repeat: no-repeat;
 
-  opacity: 0;
+  opacity: 0;                   /* hidden by default */
   transition: opacity 0.6s ease-in-out;
 }
 
-/* Default visible layer */
-body.bg-ai::before {
-  background-image: url("assets/bg-ai2.png");
+/* The "main" visible background is ::before by default */
+body::before {
   opacity: 1;
 }
 
-body.bg-aero::before {
-  background-image: url("assets/bg-aero2.png");
-  opacity: 1;
-}
+/* ===== BACKGROUND IMAGES ===== */
+body.bg-ai::before { background-image: url("assets/bg-ai2.png"); }
+body.bg-aero::before { background-image: url("assets/bg-aero2.png"); }
+body.bg-mech::before { background-image: url("assets/bg-mech2.png"); }
 
-body.bg-mech::before {
-  background-image: url("assets/bg-mech2.png");
-  opacity: 1;
-}
+/* Temporary overlay for fading in/out */
+body.bg-ai-temp::after { background-image: url("assets/bg-ai2.png"); opacity: 1; }
+body.bg-aero-temp::after { background-image: url("assets/bg-aero2.png"); opacity: 1; }
+body.bg-mech-temp::after { background-image: url("assets/bg-mech2.png"); opacity: 1; }
 
-/* Temporary overlay for fading */
-body.bg-ai-temp::after {
-  background-image: url("assets/bg-ai2.png");
-  opacity: 1;
-}
-
-body.bg-aero-temp::after {
-  background-image: url("assets/bg-aero2.png");
-  opacity: 1;
-}
-
-body.bg-mech-temp::after {
-  background-image: url("assets/bg-mech2.png");
-  opacity: 1;
-}
 
 
 header {
