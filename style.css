@@ -7,17 +7,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Create two background layers */
-body::before,
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: white;
-  background-color: #000;
-  position: relative;
-  overflow-x: hidden;
-}
-
 /* Two fixed layers for fading */
 body::before,
 body::after {
