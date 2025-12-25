@@ -9,25 +9,6 @@
   <link rel="preload" href="assets/bg-mech2.png" as="image">
 </head>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll(".experience, .hero");
-
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const bg = entry.target.dataset.bg;
-            document.body.className = `bg-${bg}`;
-          }
-        });
-      },
-      { threshold: 0.5}
-    );
-
-    sections.forEach(section => observer.observe(section));
-  });
-</script>
 
 <script>
   function scrollToSection(type) {
