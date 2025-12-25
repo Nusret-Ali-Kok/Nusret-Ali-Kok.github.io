@@ -55,7 +55,10 @@ header {
 
 .experience-grid {
   display: grid;
-  grid-template-columns: minmax(420px, 1fr) minmax(520px, 1.3fr);
+  grid-template-columns:
+    minmax(420px, 1fr)
+    minmax(80px, 10vw)   /* ← EMPTY CENTER GAP */
+    minmax(520px, 1.3fr);
   align-items: start;
 }
 
@@ -67,7 +70,7 @@ header {
 }
 
 .experience-media {
-  grid-column: 2;
+  grid-column: 3;
   grid-row: 1;
   justify-self: end;
   align-self: start;
@@ -75,7 +78,7 @@ header {
 }
 
 .experience.flip .experience-text {
-  grid-column: 2;
+  grid-column: 3;
   grid-row: 1;
   justify-self: end;
   text-align: right;
@@ -249,6 +252,6 @@ header {
 
   .experience-text,
   .experience-media {
-    order: unset;
+    grid-column: 1;
   }
 }
