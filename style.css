@@ -56,7 +56,7 @@ header {
 .experience-grid {
   display: grid;
   grid-template-columns:
-    minmax(520px, 1.2fr)
+    minmax(480px, 1.1fr)
     minmax(80px, 10vw)   /* ← EMPTY CENTER GAP */
     minmax(520px, 1.2fr);
   align-items: start;
