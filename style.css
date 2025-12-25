@@ -2,31 +2,22 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: white;
-  background-color: #000;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
 
   background-size: 100% 100%;
   background-position: center;
-  background-repeat: no-repeat;
-
-  transition: opacity 0.6s ease-in-out;
+  background-attachment: fixed;
+  transition: background-image 0.6s ease-in-out;
 }
 
-body.bg-ai::before {
+body.bg-ai {
   background-image: url("assets/bg-ai2.png");
 }
 
-body.bg-aero::before {
+body.bg-aero {
   background-image: url("assets/bg-aero2.png");
 }
 
-body.bg-mech::before {
+body.bg-mech {
   background-image: url("assets/bg-mech2.png");
 }
 
@@ -67,7 +58,7 @@ header {
   grid-template-columns:
     minmax(480px, 1.1fr)
     minmax(80px, 10vw)   /* ← EMPTY CENTER GAP */
-    minmax(535px, 1.2fr);
+    minmax(533px, 1.2fr);
   align-items: start;
 }
 
