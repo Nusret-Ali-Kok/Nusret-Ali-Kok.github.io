@@ -65,7 +65,7 @@ header {
   display: grid;
   grid-template-columns:
     minmax(480px, 1.1fr)
-    minmax(80px, 10vw)   /* ← EMPTY CENTER GAP */
+    minmax(82px, 10vw)   /* ← EMPTY CENTER GAP */
     minmax(530px, 1.2fr);
   align-items: start;
 }
@@ -254,6 +254,19 @@ header {
   transform: translateY(-3px);
 }
 
+
+
+/* Change cursor on hover for clickable images */
+.experience-media img {
+  cursor: zoom-in;  /* indicates the image can be clicked */
+  transition: transform 0.3s ease;
+}
+
+/* Optional hover effect to give a subtle lift */
+.experience-media img:hover {
+  transform: scale(1.02);
+}
+
 /* Lightbox background overlay */
 .lightbox {
   display: none; /* hidden by default */
@@ -266,7 +279,8 @@ header {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  cursor: zoom-out;
+  cursor: zoom-in; /* user can click to zoom */
+  transition: background 0.3s ease;
 }
 
 /* Image inside lightbox */
@@ -275,6 +289,7 @@ header {
   max-height: 90%;
   border-radius: 12px;
   box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease; /* smooth zoom */
 }
 
 /* Close button */
