@@ -58,7 +58,7 @@ header {
   grid-template-columns:
     minmax(480px, 1.1fr)
     minmax(80px, 10vw)   /* ← EMPTY CENTER GAP */
-    minmax(525px, 1.3fr);
+    minmax(535px, 1.2fr);
   align-items: start;
 }
 
