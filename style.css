@@ -16,7 +16,7 @@ body::after {
   inset: 0;
   z-index: -1;
 
-  background-size: 100% 100%;   /* fill the viewport */
+  background-size: cover;   /* fill the viewport */
   background-position: center;
   background-repeat: no-repeat;
 
@@ -142,6 +142,7 @@ header {
 .experience-media img,
 .experience-media video,
 .experience-media iframe {
+  width: 100%;
   max-width: 100%;
   height: auto;
   border-radius: 10px;
@@ -339,12 +340,38 @@ header {
 
 
 @media (max-width: 900px) {
+  .experience {
+    padding: 30px 20px;
+  }
+
   .experience-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* single column */
+    gap: 30px;
   }
 
   .experience-text,
   .experience-media {
     grid-column: 1;
+    justify-self: stretch; /* override start/end */
+    align-self: start;
+    text-align: left;
+  }
+
+  .experience-media {
+    margin-top: 0;
   }
 }
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    padding: 40px 24px;
+    text-align: left;
+  }
+
+  .hero-image {
+    max-width: 100%;
+    margin-top: 30px;
+  }
+}
+
