@@ -56,9 +56,9 @@ header {
 .experience-grid {
   display: grid;
   grid-template-columns:
-    minmax(420px, 1fr)
+    minmax(500px, 1.2fr)
     minmax(80px, 10vw)   /* ← EMPTY CENTER GAP */
-    minmax(520px, 1.3fr);
+    minmax(520px, 1.2fr);
   align-items: start;
 }
 
@@ -176,6 +176,8 @@ header {
 
 .hero-image {
   max-width: 420px;
+  max-height: 60vh;
+  object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
