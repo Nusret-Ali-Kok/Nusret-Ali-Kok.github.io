@@ -367,4 +367,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 </body>
+<script>
+  function changeBackground(newClass) {
+    const body = document.body;
+    const oldClass = [...body.classList].find(c => c.startsWith("bg-") && !c.endsWith("-temp"));
+    if (oldClass === newClass) return;
+
+    // Apply temporary overlay
+    body.classList.add(newClass + "-temp");
+
+    // Fade in the overlay
+    requestAnimationFrame(() => {
+      // triggers opacity transition
+    });
+
+    // After fade duration, swap classes
+    setTimeout(() => {
+      body.classList.remove(oldClass);
+      body.classList.add(newClass);
+      body.classList.remove(newClass + "-temp");
+    }, 600); // match transition duration
+  }
+
+  // Example: hook into your IntersectionObserver
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".experience, .hero");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bg = entry.target.dataset.bg;
+          changeBackground("bg-" + bg);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach(section => observer.observe(section));
+  });
+</script>
+
+
 </html>

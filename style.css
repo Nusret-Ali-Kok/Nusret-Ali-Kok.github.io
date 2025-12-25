@@ -3,9 +3,24 @@ body {
   font-family: Arial, sans-serif;
   color: white;
   background-color: #000;
+  position: relative;
+  overflow-x: hidden;
 }
 
-body::before {
+/* Create two background layers */
+body::before,
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  background-color: #000;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Two fixed layers for fading */
+body::before,
+body::after {
   content: "";
   position: fixed;
   inset: 0;
@@ -15,19 +30,40 @@ body::before {
   background-position: center;
   background-repeat: no-repeat;
 
+  opacity: 0;
   transition: opacity 0.6s ease-in-out;
 }
 
+/* Default visible layer */
 body.bg-ai::before {
   background-image: url("assets/bg-ai2.png");
+  opacity: 1;
 }
 
 body.bg-aero::before {
   background-image: url("assets/bg-aero2.png");
+  opacity: 1;
 }
 
 body.bg-mech::before {
   background-image: url("assets/bg-mech2.png");
+  opacity: 1;
+}
+
+/* Temporary overlay for fading */
+body.bg-ai-temp::after {
+  background-image: url("assets/bg-ai2.png");
+  opacity: 1;
+}
+
+body.bg-aero-temp::after {
+  background-image: url("assets/bg-aero2.png");
+  opacity: 1;
+}
+
+body.bg-mech-temp::after {
+  background-image: url("assets/bg-mech2.png");
+  opacity: 1;
 }
 
 
