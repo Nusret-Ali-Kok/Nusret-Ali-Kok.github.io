@@ -74,9 +74,9 @@ header {
 .experience-grid {
   display: grid;
   grid-template-columns:
-    minmax(480px, 1.1fr)
-    minmax(82px, 10vw)   /* ← EMPTY CENTER GAP */
-    minmax(530px, 1.2fr);
+    minmax(0, 1.1fr)
+    minmax(40px, 8vw)
+    minmax(0, 1.2fr);
   align-items: start;
 }
 
@@ -355,6 +355,8 @@ header {
     justify-self: stretch; /* override start/end */
     align-self: start;
     text-align: left;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .experience-media {
