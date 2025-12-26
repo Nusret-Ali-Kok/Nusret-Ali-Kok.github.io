@@ -74,9 +74,9 @@ header {
 .experience-grid {
   display: grid;
   grid-template-columns:
-    minmax(0, 1.1fr)
-    clamp(40px, 6vw, 82px)
-    minmax(0, 1.2fr);
+    minmax(480px, 1.1fr)
+    minmax(82px, 10vw)   /* ← EMPTY CENTER GAP */
+    minmax(530px, 1.2fr);
   align-items: start;
 }
 
@@ -88,7 +88,6 @@ header {
 }
 
 .experience-media {
-  min-width: 0;
   grid-column: 3;
   grid-row: 1;
   justify-self: end;
@@ -152,8 +151,9 @@ header {
 
 .experience iframe {
   aspect-ratio: 16 / 9;
+  width: 100%;
   height: auto;
-  min-height: 315px;
+  max-height: 60vh;
 }
 
 .experience h2 {
