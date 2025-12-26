@@ -74,9 +74,9 @@ header {
 .experience-grid {
   display: grid;
   grid-template-columns:
-    minmax(480px, 1.1fr)
-    minmax(82px, 10vw)   /* ← EMPTY CENTER GAP */
-    minmax(530px, 1.2fr);
+    minmax(0, 1fr)   /* left text column can shrink */
+    minmax(20px, 10vw) /* center gap stays flexible */
+    minmax(0, 1fr);  /* right media column can shrink */
   align-items: start;
 }
 
@@ -90,7 +90,7 @@ header {
 .experience-media {
   grid-column: 3;
   grid-row: 1;
-  justify-self: start;
+  justify-self: end;
   align-self: start;
   margin-top: 0;
 }
@@ -142,6 +142,7 @@ header {
 .experience-media img,
 .experience-media video,
 .experience-media iframe {
+  display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -355,6 +356,7 @@ header {
     justify-self: stretch; /* override start/end */
     align-self: start;
     text-align: left;
+    min-width: 0;
   }
 
   .experience-media {
