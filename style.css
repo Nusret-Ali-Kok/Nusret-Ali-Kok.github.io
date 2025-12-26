@@ -74,9 +74,9 @@ header {
 .experience-grid {
   display: grid;
   grid-template-columns:
-    clamp(220px, 35%, 480px)
-    minmax(16px, 10vw)   /* ← EMPTY CENTER GAP */
-    clamp(220px, 45%, 530px);;
+    minmax(0, 1.1fr)
+    clamp(40px, 6vw, 82px)
+    minmax(0, 1.2fr);
   align-items: start;
 }
 
@@ -88,6 +88,7 @@ header {
 }
 
 .experience-media {
+  min-width: 0;
   grid-column: 3;
   grid-row: 1;
   justify-self: end;
