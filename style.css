@@ -95,6 +95,11 @@ header {
   margin-top: 0;
 }
 
+.experience-media,
+.experience-media > * {
+  min-width: 0;
+}
+
 .experience.flip .experience-text {
   grid-column: 3;
   grid-row: 1;
