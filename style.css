@@ -90,8 +90,8 @@ header {
 .experience-media {
   grid-column: 3;
   grid-row: 1;
-  justify-self: end;
-  align-self: end;
+  justify-self: start;
+  align-self: start;
   margin-top: 0;
 }
 
