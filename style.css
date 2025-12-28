@@ -69,6 +69,12 @@ header {
   font-size: 1rem;
   line-height: 1.6;
   opacity: 0.9;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 20px 24px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  text-align: justify;
+  hyphens: auto;
 }
 
 .experience-grid {
