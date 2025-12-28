@@ -382,6 +382,7 @@ header {
   .hero {
     padding: 40px 24px;
     gap: 20px;
+    flex-wrap: nowrap;       /* prevent wrapping */
   }
 
   .hero-content {
@@ -390,10 +391,12 @@ header {
   }
 
   .hero-image {
-    flex-shrink: 0.5;
-    max-width: 300px;
-    min-width: 150px;
+    flex-shrink: 1;          /* allow shrinking */
+    max-width: 300px;        /* won’t grow too big */
+    min-width: 150px;        /* won’t shrink too small */
+    width: auto;             /* scale naturally */
   }
 }
+
 
 
