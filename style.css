@@ -380,23 +380,17 @@ header {
 
 @media (max-width: 900px) {
   .hero {
+    flex-direction: column;
     padding: 40px 24px;
-    gap: 20px;
-    flex-wrap: nowrap;       /* prevent wrapping */
-  }
-
-  .hero-content {
-    flex-shrink: 1;
-    min-width: 0;
+    text-align: left;
   }
 
   .hero-image {
-    flex-shrink: 1;          /* allow shrinking */
-    max-width: 300px;        /* won’t grow too big */
-    min-width: 150px;        /* won’t shrink too small */
-    width: auto;             /* scale naturally */
+    width: 100%;
+    max-width: 420px;   /* ← KEEP this */
+    margin-top: 30px;
+    align-self: center;
   }
 }
-
 
 
