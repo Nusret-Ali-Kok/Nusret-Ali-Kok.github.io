@@ -380,16 +380,19 @@ header {
 
 @media (max-width: 900px) {
   .hero {
-    flex-direction: column;
     padding: 40px 24px;
-    text-align: left;
+    gap: 20px;
+  }
+
+  .hero-content {
+    flex-shrink: 1;
+    min-width: 0;
   }
 
   .hero-image {
-    width: 100%;
-    max-width: 420px;   /* ← KEEP this */
-    margin-top: 30px;
-    align-self: center;
+    flex-shrink: 0.5;
+    max-width: 300px;
+    min-width: 150px;
   }
 }
 
