@@ -361,16 +361,20 @@ header {
     gap: 30px;
   }
 
-  .experience-text,
-  .experience-media {
+  .experience-text {
     grid-column: 1;
-    justify-self: stretch; /* override start/end */
+    justify-self: stretch;
     align-self: start;
     text-align: left;
   }
 
   .experience-media {
+    grid-column: 1;
+    justify-self: center; /* center the media container */
+    align-self: start;
     margin-top: 0;
+    max-width: 600px; /* prevent expansion */
+    width: 100%; /* but allow it to shrink on small screens */
   }
 }
 
