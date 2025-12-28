@@ -90,7 +90,7 @@ header {
 .experience-media {
   grid-column: 3;
   grid-row: 1;
-  justify-self: end;
+  justify-self: stretch;
   align-self: start;
   margin-top: 0;
 }
@@ -99,6 +99,12 @@ header {
 .experience-media > * {
   min-width: 0;
 }
+
+.experience-media {
+  max-width: 600px;
+  min-width: 0;
+}
+
 
 .experience.flip .experience-text {
   grid-column: 3;
@@ -376,8 +382,11 @@ header {
   }
 
   .hero-image {
-    max-width: 100%;
+    width: 100%;
+    max-width: 420px;   /* ← KEEP this */
     margin-top: 30px;
+    align-self: center;
   }
 }
+
 
