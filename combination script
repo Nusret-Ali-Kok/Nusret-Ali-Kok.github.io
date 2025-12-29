@@ -1,0 +1,35 @@
+from PIL import Image
+import os
+
+# Directory containing the images
+directory = r"C:\Users\nusre\Desktop\Personal Website\MY ARSENAL\Nusret-Ali-Kok.github.io\assets"
+
+# Image filenames
+img2_path = os.path.join(directory, "Connections 1.jpg")
+img1_path = os.path.join(directory, "Connections 2.jpg")
+
+# Open images
+img1 = Image.open(img1_path)
+img2 = Image.open(img2_path)
+
+# Determine the taller height to stretch both images
+target_height = max(img1.height, img2.height) + 200  # add extra height to make it taller
+
+# Resize both images to the target height while keeping width the same
+img1 = img1.resize((img1.width, target_height), Image.LANCZOS)
+img2 = img2.resize((img2.width, target_height), Image.LANCZOS)
+
+# Create new image with combined width
+combined_width = img1.width + img2.width
+combined_height = target_height
+combined_img = Image.new("RGB", (combined_width, combined_height))
+
+# Paste images side by side
+combined_img.paste(img1, (0, 0))
+combined_img.paste(img2, (img1.width, 0))
+
+# Save output
+output_path = os.path.join(directory, "Connections_Combined_Taller.jpg")
+combined_img.save(output_path)
+
+print(f"Combined image saved to: {output_path}")
